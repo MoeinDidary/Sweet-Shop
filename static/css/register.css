@@ -1,0 +1,129 @@
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 80px); /* کمی فاصله از هدر */
+    background: linear-gradient(135deg, var(--cream), #fff);
+    padding: 20px;
+}
+
+
+.auth-card {
+    background: #fff;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    box-shadow: var(--shadow);
+    padding: 28px 26px;
+    width: 100%;
+    max-width: 420px;
+    text-align: center;
+    animation: fadeIn .4s ease;
+}
+
+.auth-card h1 {
+    font-size: 1.6rem;
+    color: var(--choco);
+    margin-bottom: 8px;
+    font-weight: 700;
+}
+
+.auth-card .subtitle {
+    font-size: .95rem;
+    color: var(--muted);
+    margin-bottom: 22px;
+}
+
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 14px;
+    text-align: left;
+}
+
+.auth-form label {
+    font-size: .9rem;
+    font-weight: 500;
+    margin-bottom: 4px;
+    color: var(--text);
+    display: block;
+}
+
+.auth-form input {
+    width: 100%;
+    padding: 10px 12px;
+    border-radius: 10px;
+    border: 1px solid var(--border);
+    font-size: .95rem;
+    transition: border .2s, box-shadow .2s;
+}
+
+.auth-form input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(255, 111, 169, .15);
+    outline: none;
+}
+
+
+.btn-primary {
+    background: var(--pink);
+    border: none;
+    color: #fff;
+    padding: 12px;
+    font-size: 1rem;
+    border-radius: 10px;
+    cursor: pointer;
+    font-weight: 600;
+    transition: background .2s;
+}
+
+.btn-primary:hover {
+    background: #ff5c9d;
+}
+
+
+.alt-link {
+    margin-top: 18px;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.alt-link a {
+    color: var(--pink);
+    font-weight: 600;
+    text-decoration: none;
+}
+
+.alt-link a:hover {
+    text-decoration: underline;
+}
+
+
+small {
+    display: block;
+    margin-top: 4px;
+    font-size: .8rem;
+    color: red;
+}
+
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+@media (max-width: 480px) {
+    .auth-card {
+        padding: 22px 18px;
+    }
+
+    .auth-card h1 {
+        font-size: 1.3rem;
+    }
+}

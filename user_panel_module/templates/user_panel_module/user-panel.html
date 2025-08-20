@@ -1,0 +1,44 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    👤 User Panel | Sweet Shop
+{% endblock %}
+
+{% block content %}
+    <main class="user-panel">
+        <div class="container">
+            <h1 class="panel-title">👤 User Panel</h1>
+            <p class="welcome">Welcome back, <strong>{{ request.user.username }}</strong>! ✨</p>
+
+            <div class="user-card">
+                <div class="avatar-box">
+                    {% if request.user.avatar %}
+                        <img src="{{ request.user.avatar.url }}" alt="Avatar">
+                    {% else %}
+                        <div class="avatar-placeholder">{{ request.user.username|first|upper }}</div>
+                    {% endif %}
+                </div>
+                <div class="info">
+                    <p><strong>Username:</strong> {{ request.user.username }}</p>
+                    <p><strong>Email:</strong> {{ request.user.email }}</p>
+                </div>
+            </div>
+
+            <div class="profile-card">
+                <h2>Edit Profile</h2>
+                <form method="post" enctype="multipart/form-data" class="profile-form">
+                    {% csrf_token %}
+                    {{ form.as_p }}
+                    <button type="submit" class="btn-primary">💾 Save Changes</button>
+                </form>
+            </div>
+
+            <div class="panel-actions">
+                <form method="post" action="{% url 'logout_view' %}">
+                    {% csrf_token %}
+                    <button type="submit" class="btn-danger">🚪 Sign Out</button>
+                </form>
+            </div>
+        </div>
+    </main>
+{% endblock %}

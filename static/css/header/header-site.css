@@ -1,0 +1,241 @@
+:root {
+    --pink: #ff6fa9;
+    --choco: #5c4033;
+    --cream: #fff7f2;
+    --text: #2d2d2d;
+    --muted: #8c8c8c;
+    --border: #eee;
+    --shadow: 0 6px 18px rgba(0, 0, 0, .06);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+.site-header {
+    position: sticky;
+    top: 0;
+    z-index: 50;
+}
+
+.container {
+    max-width: 1200px;
+    margin-inline: auto;
+    padding: 0 12px;
+}
+
+.topbar {
+    background: linear-gradient(90deg, var(--cream), #fff);
+    border-bottom: 1px solid var(--border);
+    font-size: .85rem;
+    color: var(--muted);
+}
+
+.topbar .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+    min-height: 36px;
+}
+
+.topbar .link {
+    color: var(--muted);
+    text-decoration: none;
+    margin-inline-start: 8px;
+}
+
+.topbar .link:hover {
+    color: var(--choco);
+}
+
+.nav {
+    background: #fff;
+    box-shadow: var(--shadow);
+}
+
+.nav .container {
+    display: grid;
+    grid-template-columns: auto 1fr auto;
+    align-items: center;
+    gap: 12px;
+    min-height: 60px;
+}
+
+.brand-text {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--choco);
+    font-family: 'Poppins', sans-serif;
+    letter-spacing: 1px;
+}
+
+.brand-text .highlight {
+    color: var(--pink);
+}
+
+.menu-toggle {
+    display: none;
+    background: transparent;
+    border: 0;
+    cursor: pointer;
+    padding: 6px;
+    border-radius: 10px;
+}
+
+.menu-toggle:focus {
+    outline: 2px solid var(--pink);
+}
+
+.menu-toggle span {
+    display: block;
+    width: 20px;
+    height: 2px;
+    background: var(--choco);
+    margin: 3px 0;
+    transition: .2s;
+}
+
+.menu ul {
+    list-style: none;
+    display: flex;
+    gap: 12px;
+    padding: 0;
+    margin: 0;
+}
+
+.menu a {
+    text-decoration: none;
+    color: var(--text);
+    padding: 6px 10px;
+    border-radius: 10px;
+    font-weight: 500;
+    font-size: .95rem;
+}
+
+.menu a:hover {
+    background: var(--cream);
+    color: var(--choco);
+}
+
+.actions {
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+    gap: 10px;
+}
+
+.search {
+    display: flex;
+    align-items: center;
+    border: 1px solid var(--border);
+    border-radius: 14px;
+    padding: 3px 5px;
+    background: #fff;
+}
+
+.search input {
+    border: 0;
+    outline: 0;
+    padding: 6px 8px;
+    min-width: 180px;
+    font-size: .9rem;
+}
+
+.search button {
+    border: 0;
+    background: var(--pink);
+    color: #fff;
+    border-radius: 10px;
+    padding: 6px 8px;
+    cursor: pointer;
+}
+
+.search button:hover {
+    filter: brightness(.95);
+}
+
+.cart {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+    text-decoration: none;
+    font-size: 18px;
+    background: #fff;
+    border: 1px solid var(--border);
+}
+
+.cart:hover {
+    background: var(--cream);
+}
+
+.badge {
+    position: absolute;
+    top: -4px;
+    right: -4px;
+    background: var(--pink);
+    color: #fff;
+    font-size: .7rem;
+    min-width: 18px;
+    height: 18px;
+    display: grid;
+    place-items: center;
+    border-radius: 999px;
+    padding: 0 4px;
+    font-weight: 700;
+}
+
+@media (max-width: 992px) {
+    .nav .container {
+        grid-template-columns: auto 1fr auto;
+    }
+
+    .menu-toggle {
+        display: inline-block;
+    }
+
+    .menu {
+        position: fixed;
+        inset-inline: 0;
+        top: 0;
+        transform: translateY(-100%);
+        transition: .25s ease;
+        background: #fff;
+        box-shadow: var(--shadow);
+    }
+
+    .menu.open {
+        transform: translateY(0);
+    }
+
+    .menu ul {
+        flex-direction: column;
+        padding: 70px 12px 12px;
+        gap: 6px;
+    }
+
+    .actions .search input {
+        min-width: 130px;
+    }
+}
+
+@media (max-width: 600px) {
+    .brand-text {
+        font-size: 1.2rem;
+    }
+
+    .actions {
+        gap: 6px;
+    }
+
+    .topbar .container {
+        flex-direction: column;
+        padding: 4px 12px;
+    }
+}

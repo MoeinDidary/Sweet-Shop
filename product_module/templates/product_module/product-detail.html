@@ -1,0 +1,80 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    {{ product.title }} | Sweet Shop
+{% endblock %}
+
+{% block content %}
+    <div class="product-page">
+        <div class="container">
+            <div class="product-wrapper">
+                <div class="product-gallery">
+                    {% if product.image %}
+                        <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    {% else %}
+                        <div class="placeholder">No Image</div>
+                    {% endif %}
+                </div>
+
+                <div class="product-details">
+                    <h1 class="title">{{ product.title }}</h1>
+                    <p class="price">${{ product.price }}</p>
+
+                    <div class="categories">
+                        {% for cat in product.category.all %}
+                            <span>{{ cat.title }}</span>
+                        {% empty %}
+                            <span>No categories</span>
+                        {% endfor %}
+                    </div>
+
+                    <p class="short-desc">{{ product.short_description }}</p>
+                    <div class="desc">{{ product.description|linebreaks }}</div>
+
+                    <div class="buy-box">
+                        <div class="quantity-box">
+                            <label for="quantity">Qty:</label>
+                            <input type="number" id="quantity" value="1" min="1">
+                        </div>
+                        <a href="{% url 'add_to_cart' product.id %}" class="btn-buy">🛒 Add to Cart</a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="comments-section">
+                <h2>Customer Reviews</h2>
+
+
+                <div class="comments-section">
+                    <h2>💬 User Reviews</h2>
+
+                    <form class="comment-form">
+                        <textarea rows="4" placeholder="Write your review..."></textarea>
+                        <button type="submit" class="btn-submit">Submit</button>
+                    </form>
+
+                    <div class="comment-list">
+                        <div class="comment-item">
+                            <div class="comment-avatar">A</div>
+                            <div class="comment-content">
+                                <strong>Ali</strong>
+                                <p>It was really delicious 😋👌</p>
+                                <span class="date">August 14, 2023</span>
+                            </div>
+                        </div>
+
+                        <div class="comment-item">
+                            <div class="comment-avatar">S</div>
+                            <div class="comment-content">
+                                <strong>Sara</strong>
+                                <p>The packaging was beautiful and it arrived on time 🛍️</p>
+                                <span class="date">August 15, 2023</span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+{% endblock %}

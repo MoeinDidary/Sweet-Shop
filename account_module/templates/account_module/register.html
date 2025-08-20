@@ -1,0 +1,35 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    Register | Sweet Shop
+{% endblock %}
+
+{% block content %}
+    <main class="auth-page">
+        <div class="auth-card">
+            <h1>Create Account</h1>
+            <p class="subtitle">Join us for sweet discounts and tasty updates 🍩</p>
+
+            <form method="post" class="auth-form">
+                {% csrf_token %}
+                {{ register_form.non_field_errors }}
+
+                {% for field in register_form %}
+                    <div class="form-group">
+                        {{ field.label_tag }}
+                        {{ field }}
+                        {% if field.errors %}
+                            <small style="color: red;">{{ field.errors|striptags }}</small>
+                        {% endif %}
+                    </div>
+                {% endfor %}
+
+                <button type="submit" class="btn-primary">Register</button>
+            </form>
+
+            <p class="alt-link">
+                Already have an account? <a href="{% url 'login_view' %}">Login here</a>
+            </p>
+        </div>
+    </main>
+{% endblock %}

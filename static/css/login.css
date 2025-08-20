@@ -1,0 +1,130 @@
+:root {
+    --pink: #ff6fa9;
+    --choco: #5c4033;
+    --cream: #fff7f2;
+    --text: #2d2d2d;
+    --muted: #8c8c8c;
+    --border: #eee;
+    --shadow: 0 6px 18px rgba(0, 0, 0, .06);
+}
+
+
+.auth-page {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: calc(100vh - 100px);
+    padding: 40px 16px;
+    background: var(--cream);
+}
+
+
+.auth-card {
+    background: #fff;
+    border-radius: 18px;
+    box-shadow: var(--shadow);
+    max-width: 400px;
+    width: 100%;
+    padding: 32px 28px;
+    text-align: center;
+    animation: fadeIn .4s ease-in-out;
+}
+
+
+.auth-card h1 {
+    font-size: 1.8rem;
+    font-weight: 700;
+    color: var(--choco);
+    margin-bottom: 8px;
+}
+
+.auth-card .subtitle {
+    font-size: .95rem;
+    color: var(--muted);
+    margin-bottom: 24px;
+}
+
+
+.auth-form {
+    display: flex;
+    flex-direction: column;
+    gap: 16px;
+}
+
+
+.form-group {
+    text-align: left;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 6px;
+    font-weight: 600;
+    font-size: .9rem;
+    color: var(--text);
+}
+
+.form-group input {
+    width: 100%;
+    padding: 10px 12px;
+    border: 1px solid var(--border);
+    border-radius: 12px;
+    font-size: .9rem;
+    transition: border-color .2s, box-shadow .2s;
+}
+
+.form-group input:focus {
+    border-color: var(--pink);
+    box-shadow: 0 0 0 3px rgba(255, 111, 169, 0.2);
+    outline: none;
+}
+
+.form-group small {
+    display: block;
+    margin-top: 4px;
+    font-size: .8rem;
+    color: red;
+}
+.btn-primary {
+    background: var(--pink);
+    color: #fff;
+    padding: 12px;
+    border: none;
+    border-radius: 12px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: all .2s ease;
+}
+
+.btn-primary:hover {
+    filter: brightness(.95);
+}
+
+
+.alt-link {
+    margin-top: 20px;
+    font-size: .9rem;
+    color: var(--muted);
+}
+
+.alt-link a {
+    color: var(--pink);
+    text-decoration: none;
+    font-weight: 600;
+}
+
+.alt-link a:hover {
+    text-decoration: underline;
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}

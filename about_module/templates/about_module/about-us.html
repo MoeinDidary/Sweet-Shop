@@ -1,0 +1,48 @@
+{% extends 'shared/base.html' %}
+
+{% block title %}
+    About Us | Sweet Shop
+{% endblock %}
+
+{% block content %}
+    <div class="about-page">
+        {% if about.poster %}
+            <div class="about-hero" style="background-image: url('{{ about.poster.url }}');">
+                <div class="overlay">
+                    <h1>{{ about.title }}</h1>
+                </div>
+            </div>
+        {% endif %}
+
+        <div class="container">
+            <div class="about-wrapper">
+                <div class="about-description">
+                    <h2>Who We Are</h2>
+                    <p>{{ about.description }}</p>
+                </div>
+
+                <div class="about-info">
+                    <h2>Contact Information</h2>
+                    <div class="info-cards">
+                        <div class="info-card">
+                            <span>📧</span>
+                            <p>{{ about.email }}</p>
+                        </div>
+                        <div class="info-card">
+                            <span>📞</span>
+                            <p>{{ about.phone }}</p>
+                        </div>
+                        <div class="info-card">
+                            <span>📠</span>
+                            <p>{{ about.fax }}</p>
+                        </div>
+                        <div class="info-card">
+                            <span>📍</span>
+                            <p>{{ about.address }}</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+{% endblock %}

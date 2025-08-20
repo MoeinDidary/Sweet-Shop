@@ -1,0 +1,83 @@
+{% extends 'shared/base.html' %}
+{% load static %}
+
+{% block title %}
+    Sweet Shop | Home
+{% endblock %}
+
+{% block content %}
+
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Welcome to <span>Sweet Shop</span></h1>
+            <p>Freshly baked cakes, cookies, and more every day</p>
+            <a href="{% url 'product_list_view' %}" class="btn-primary">Shop Now</a>
+        </div>
+    </section>
+
+    <section class="categories">
+        <h2>Shop by Category</h2>
+        <div class="swiper category-swiper">
+            <div class="swiper-wrapper">
+                {% for category in categories %}
+                    <div class="swiper-slide">
+                        <a href="{% url 'product_by_category' category.url_title %}" class="category-card">
+                            <img src="{{ category.image.url }}" alt={{ category.title }}>
+                            <h3>{{ category.title }}</h3>
+                        </a>
+                    </div>
+                {% endfor %}
+
+                <div class="swiper-button-next"></div>
+                <div class="swiper-button-prev"></div>
+                <div class="swiper-pagination"></div>
+            </div>
+    </section>
+
+    <section class="products">
+        <h2>Featured Products</h2>
+        <div class="product-grid">
+            {% for product in products %}
+                <div class="product-card">
+                    <img src="{{ product.image.url }}" alt="{{ product.title }}">
+                    <div class="product-info">
+                        <h3>{{ product.title }}</h3>
+                        <p class="price">${{ product.price }}</p>
+                        <a href="{{ product.get_absolute_url }}" class="btn-secondary">View Details</a>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+        <div class="center-btn">
+            <a href="{% url 'product_list_view' %}" class="btn-primary">See All Products</a>
+        </div>
+    </section>
+
+    <section class="why-us">
+        <h2>Why Choose Us?</h2>
+        <div class="why-grid">
+            <div class="why-card">
+                <span class="icon">🕒</span>
+                <h3>On-Time Delivery</h3>
+                <p>We ensure your sweets arrive fresh and right on time.</p>
+            </div>
+            <div class="why-card">
+                <span class="icon">🧁</span>
+                <h3>Freshly Baked</h3>
+                <p>All our products are baked daily with the finest ingredients.</p>
+            </div>
+            <div class="why-card">
+                <span class="icon">💖</span>
+                <h3>Made with Love</h3>
+                <p>Every sweet is crafted with passion and care.</p>
+            </div>
+            <div class="why-card">
+                <span class="icon">💳</span>
+                <h3>Secure Payment</h3>
+                <p>Easy and safe payment options for your peace of mind.</p>
+            </div>
+        </div>
+    </section>
+
+    <script src="{% static 'js/slider-home.js' %}"></script>
+{% endblock %}

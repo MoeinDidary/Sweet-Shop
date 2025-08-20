@@ -1,0 +1,237 @@
+
+.hero {
+    background: url('/static/images/558_Jlpmhds.jpg') center/cover no-repeat;
+    height: 75vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: #fff;
+    position: relative;
+}
+
+.hero::after {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.hero-content {
+    position: relative;
+    z-index: 1;
+}
+
+.hero h1 {
+    font-size: 3rem;
+    margin-bottom: 15px;
+}
+
+.hero h1 span {
+    color: #ff5c9d;
+}
+
+.hero p {
+    font-size: 1.2rem;
+    margin-bottom: 25px;
+}
+
+.btn-primary {
+    background: #ff5c9d;
+    color: #fff;
+    padding: 12px 28px;
+    border-radius: 8px;
+    text-decoration: none;
+    font-weight: 600;
+    transition: background .3s;
+}
+
+.btn-primary:hover {
+    background: #ff3b85;
+}
+
+.categories {
+    padding: 80px 20px;
+    text-align: center;
+    background: #fff5f8;
+}
+
+.categories h2 {
+    font-size: 2rem;
+    font-weight: bold;
+    margin-bottom: 40px;
+    color: #333;
+    position: relative;
+    display: inline-block;
+}
+
+.categories h2::after {
+    content: "";
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 60px;
+    height: 3px;
+    background: #ff5c9d;
+    border-radius: 2px;
+}
+
+.category-card {
+    position: relative;
+    display: block;
+    border-radius: 16px;
+    overflow: hidden;
+    box-shadow: 0 6px 20px rgba(0, 0, 0, 0.12);
+    transition: transform .4s ease, box-shadow .4s ease;
+}
+
+.category-card img {
+    width: 100%;
+    height: 240px;
+    object-fit: cover;
+    transition: transform .5s ease;
+}
+
+.category-card::after {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(to top, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.05));
+}
+
+.category-card h3 {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+    font-size: 1.4rem;
+    color: #fff;
+    font-weight: 600;
+    z-index: 2;
+}
+
+.category-card:hover img {
+    transform: scale(1.1);
+}
+
+.category-card:hover {
+    transform: translateY(-8px);
+    box-shadow: 0 12px 28px rgba(0, 0, 0, 0.2);
+}
+
+
+.category-swiper {
+    padding-bottom: 50px;
+}
+
+.swiper-button-next, .swiper-button-prev {
+    color: #ff5c9d;
+}
+
+.swiper-pagination-bullet-active {
+    background: #ff5c9d !important;
+}
+
+
+
+.products {
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.product-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 25px;
+    margin-top: 25px;
+}
+
+.product-card {
+    background: #fff;
+    border-radius: 14px;
+    overflow: hidden;
+    box-shadow: var(--shadow);
+    display: flex;
+    flex-direction: column;
+}
+
+.product-card img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+}
+
+.product-info {
+    padding: 16px;
+}
+
+.product-info h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+}
+
+.price {
+    font-weight: bold;
+    color: #ff5c9d;
+    margin-bottom: 12px;
+}
+
+.btn-secondary {
+    display: inline-block;
+    padding: 8px 16px;
+    border: 1px solid #ff5c9d;
+    color: #ff5c9d;
+    border-radius: 6px;
+    text-decoration: none;
+    transition: all .3s;
+}
+
+.btn-secondary:hover {
+    background: #ff5c9d;
+    color: #fff;
+}
+
+.center-btn {
+    margin-top: 30px;
+}
+
+
+.why-us {
+    background: #fdf3f7;
+    padding: 60px 20px;
+    text-align: center;
+}
+
+.why-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+    gap: 25px;
+    margin-top: 30px;
+}
+
+.why-card {
+    background: #fff;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: var(--shadow);
+    transition: transform .3s;
+}
+
+.why-card .icon {
+    font-size: 2rem;
+    display: block;
+    margin-bottom: 10px;
+}
+
+.why-card h3 {
+    font-size: 1.2rem;
+    margin-bottom: 8px;
+    color: var(--choco);
+}
+
+.why-card:hover {
+    transform: translateY(-8px);
+}
